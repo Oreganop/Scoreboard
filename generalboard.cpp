@@ -1,7 +1,7 @@
 #include"generalboard.h"
 
-generalboard(int c, int p)
-    : competitor(c), period(p)
+generalboard::generalboard(int c, int p)
+    : competitors(c), periods(p)
 {
     grid = new int*[c];
     for (int i=0; i<c; i++)
@@ -14,9 +14,18 @@ generalboard(int c, int p)
     }
 }
 
-void setScore(int competitor, int period, int score)
+generalboard::~generalboard()
 {
-    competitor--;
+    for (int i=0; i<competitors; i++)
+    {
+        delete [] grid[i];
+    }
+    delete [] grid;
+}
+
+void generalboard::setScore(int competitor, int period, int score)
+{
+    competitor--; // lol
     period--;
     if ( competitor < competitors && period < periods && competitor >= 0 && period >= 0)
     {
@@ -24,9 +33,9 @@ void setScore(int competitor, int period, int score)
     }
 }
 
-int getScore(int competitor, int period)
+int generalboard::getScore(int competitor, int period)
 {
-    competitor--;
+    competitor--; // lol
     period--;
     if ( competitor <= competitors && period <= periods && competitor >= 0 && period >= 0)
     {
@@ -35,7 +44,7 @@ int getScore(int competitor, int period)
     return 0;
 }
 
-int getTotalScore(int competitor)
+int generalboard::getTotalScore(int competitor)
 {
     int total=0;
     if ( competitor <= competitors && competitor>= 1 )
@@ -48,9 +57,9 @@ int getTotalScore(int competitor)
     return 0;
 }
 
-void clearScoreboard()
+void generalboard::clearScoreboard()
 {
-    for (int i=0; i<c; i++)
+    for (int i=0; i<competitors; i++)
     {
         delete [] grid[i];
     }
@@ -65,5 +74,4 @@ void clearScoreboard()
             grid[i][j] = 0;
         }
     }
-    
 }
