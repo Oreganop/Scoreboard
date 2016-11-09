@@ -25,21 +25,17 @@ generalboard::~generalboard()
 
 void generalboard::setScore(int competitor, int period, int score)
 {
-    competitor--; // lol
-    period--;
-    if ( competitor < competitors && period < periods && competitor >= 0 && period >= 0)
+    if ( competitor <= competitors && period <= periods && competitor >= 1 && period >= 1)
     {
-        grid[competitor][period] = score;
+        grid[competitor-1][period-1] = score;
     }
 }
 
 int generalboard::getScore(int competitor, int period)
 {
-    competitor--; // lol
-    period--;
-    if ( competitor <= competitors && period <= periods && competitor >= 0 && period >= 0)
+    if ( competitor <= competitors && period <= periods && competitor >= 1 && period >= 1)
     {
-        return grid[competitor][period];
+        return grid[competitor-1][period-1];
     }
     return 0;
 }
@@ -53,22 +49,16 @@ int generalboard::getTotalScore(int competitor)
         {
             total += grid[competitor-1][p];
         }
+        return total;
     }
     return 0;
 }
 
 void generalboard::clearScoreboard()
 {
-    for (int i=0; i<competitors; i++)
-    {
-        delete [] grid[i];
-    }
-    delete [] grid;
 
-    grid = new int*[competitors];
     for (int i=0; i<competitors; i++)
     {
-        grid[i] = new int[periods];
         for (int j=0; j<periods; j++)
         {
             grid[i][j] = 0;

@@ -7,14 +7,12 @@
 
 class generalboard : public IScoreboard{
     private:
-        //vector<map < int, int > > grid;
         int **grid;
         int competitors;
         int periods;
     public:
         generalboard(int c, int p);
         ~generalboard();
-
         /*
          * void setScore(int,int,int)
          *  Sets the score for one competitor for a given period. Out of range
