@@ -1,6 +1,7 @@
 #include"IScoreboard.h"
 #include<vector>
 #include<map>
+#include<climits>
 
 #ifndef GENERALBOARD_H
 #define GENERALBOARD_H
