@@ -1,10 +1,16 @@
 #Names:
-Garrett Swann
+Garrett Swann 
+
 Dustin Jackson
+
 Marshall Dyer
+
 Kevin Lien
+
 Daniel Swearingen
+
 Jason Groven
+
 Steven Bendick
 
 #General Scoreboard Class!
