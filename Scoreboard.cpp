@@ -1,5 +1,4 @@
 #include"Scoreboard.h"
-#include<climits>
 
 Scoreboard::Scoreboard(int c, int p)
     : competitors(c), periods(p)
@@ -17,6 +16,7 @@ Scoreboard::Scoreboard(int c, int p)
 
 Scoreboard::~Scoreboard()
 {
+    clearScoreboard();
     for (int i=0; i<competitors; i++)
     {
         delete [] grid[i];
@@ -30,6 +30,7 @@ void Scoreboard::setScore(int competitor, int period, int score)
     {
         grid[competitor-1][period-1] = score;
     }
+    notifyObservers();
 }
 
 int Scoreboard::getScore(int competitor, int period)
@@ -65,4 +66,5 @@ void Scoreboard::clearScoreboard()
             grid[i][j] = 0;
         }
     }
+    notifyObservers();
 }

@@ -1,4 +1,5 @@
 #include"IScoreboard.h"
+#include"ObserverPattern.hpp"
 #include<vector>
 #include<map>
 #include<climits>
@@ -6,7 +7,7 @@
 #ifndef GENERALBOARD_H
 #define GENERALBOARD_H
 
-class Scoreboard : public IScoreboard{
+class Scoreboard : public IScoreboard, public Observable{
     private:
         int **grid;
         int competitors;
